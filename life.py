@@ -35,16 +35,7 @@ def tick(grid):
             if x == 0 or x == w + 1:
                 continue
                 
-            count = 0
-            
-            count += grid[y][x] 
-            count += grid[y][x+1]
-            count += grid[y][x+2]
-            count += grid[y+1][x]
-            count += grid[y+1][x+2]
-            count += grid[y+2][x]
-            count += grid[y+2][x+1]
-            count += grid[y+2][x+2]
+            count = grid[y][x] + grid[y][x+1] + grid[y][x+2] + grid[y+1][x] + grid[y+1][x+2] + grid[y+2][x] + grid[y+2][x+1] + grid[y+2][x+2]
             
             nextgrid[y][x] = 1 if count == 3 or (count == 2 and cell) else 0
             
