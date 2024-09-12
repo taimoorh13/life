@@ -30,24 +30,21 @@ def tick(grid):
     for y in range(h+2):
         nextgrid.append(bitarray(w+2))
         
-    for y, row in enumerate(grid):
-        if y == 0 or y == h + 1:
-            continue
-            
-        for x, cell in enumerate(row):
+    for y, row in enumerate(grid[1:-1]):
+        for x, cell in enumerate(row[1:-1]):
             if x == 0 or x == w + 1:
                 continue
                 
             count = 0
             
-            count += grid[y-1][x-1] 
-            count += grid[y-1][x]
-            count += grid[y-1][x+1]
-            count += grid[y+1][x-1]
-            count += grid[y+1][x]
-            count += grid[y+1][x+1]
-            count += grid[y][x-1]
+            count += grid[y][x] 
             count += grid[y][x+1]
+            count += grid[y][x+2]
+            count += grid[y+1][x]
+            count += grid[y+1][x+2]
+            count += grid[y+2][x]
+            count += grid[y+2][x+1]
+            count += grid[y+2][x+2]
             
             nextgrid[y][x] = 1 if count == 3 or (count == 2 and cell) else 0
             
