@@ -1,9 +1,11 @@
+from bitarray import bitarray
+
 def readGrid(filename):
     grid = []
     with open(filename) as f:
         w, h  = map(int, f.readline().split(maxsplit = 1))
         for y in range(h):
-            grid.append(bytearray(w))
+            grid.append(bitarray(w))
             
         for ind, line in enumerate(f):
             try:
@@ -24,7 +26,7 @@ def tick(grid):
     h, w = len(grid), len(grid[0])
     nextgrid = []
     for y in range(h):
-        nextgrid.append(bytearray(w))
+        nextgrid.append(bitarray(w))
         
     for y, row in enumerate(grid):
         for x, cell in enumerate(row):
