@@ -26,21 +26,19 @@ def readGrid(filename):
 def tick(grid):
     h, w = len(grid) - 2, len(grid[0]) - 2
     
-    nextgrid = []
-    for y in range(h+2):
-        nextgrid.append(bitarray(w+2))
-        
     for y, row in enumerate(grid[1:-1]):
-        y1, y2 = y+1, y+2
-        for x, cell in enumerate(row[1:-1]):
-            if x == 0 or x == w + 1:
-                continue
-                
-            count = grid[y][x] + grid[y][x+1] + grid[y][x+2] + grid[y1][x] + grid[y1][x+2] + grid[y2][x] + grid[y2][x+1] + grid[y2][x+2]
+        y2 = y+2
+        curr = [0] * (w + 2)
+        
+        for x, cell in enumerate(row[1:-1]):                
+            count = grid[y][x] + grid[y][x+1] + grid[y][x+2] + row[x] + row[x+2] + grid[y2][x] + grid[y2][x+1] + grid[y2][x+2]
             
-            nextgrid[y][x] = 1 if count == 3 or (count == 2 and cell) else 0
-            
-    return nextgrid
+            curr[x + 1] = 1 if count == 3 or (count == 2 and cell) else 0
+        if y < 0:
+            grid[y] = prev
+        prev = curr
+    
+    grid[y + 1] = curr
 
 
 filename = 'matrix.txt'
@@ -48,5 +46,5 @@ filename = 'matrix.txt'
 grid = readGrid(filename)
 #print (grid)
 
-nextgrid = tick(grid)
-#print (nextgrid)
+tick(grid)
+#print (grid)
