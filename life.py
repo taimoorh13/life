@@ -42,13 +42,13 @@ class Life:
                 self.grid[y+1][x+1] = 1      
                 
     
-    def tick(self, n: int=1):
+    def tick(self, num_generations: int=1):
         """Applies the rules of Game of Life for specified number of generations.
 
         Args:
           n: Number of generations.
         """
-        for i in range(n):
+        for i in range(num_generations):
             for y, row in enumerate(self.grid[1:-1]):
                 y2 = y+2
                 curr = [0] * (self.w + 2)            
