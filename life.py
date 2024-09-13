@@ -31,11 +31,12 @@ def tick(grid):
         nextgrid.append(bitarray(w+2))
         
     for y, row in enumerate(grid[1:-1]):
+        y1, y2 = y+1, y+2
         for x, cell in enumerate(row[1:-1]):
             if x == 0 or x == w + 1:
                 continue
                 
-            count = grid[y][x] + grid[y][x+1] + grid[y][x+2] + grid[y+1][x] + grid[y+1][x+2] + grid[y+2][x] + grid[y+2][x+1] + grid[y+2][x+2]
+            count = grid[y][x] + grid[y][x+1] + grid[y][x+2] + grid[y1][x] + grid[y1][x+2] + grid[y2][x] + grid[y2][x+1] + grid[y2][x+2]
             
             nextgrid[y][x] = 1 if count == 3 or (count == 2 and cell) else 0
             
