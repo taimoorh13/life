@@ -12,7 +12,7 @@ class Life:
     - Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
     """
 
-    def __init__(self, filename):
+    def __init__(self, filename: str):
         """Creates a Game of Life object.
 
         Args:
@@ -42,7 +42,7 @@ class Life:
                 self.grid[y+1][x+1] = 1      
                 
     
-    def tick(self, n=1):
+    def tick(self, n: int=1):
         """Applies the rules of Game of Life for specified number of generations.
 
         Args:
