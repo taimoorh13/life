@@ -1,8 +1,26 @@
 from bitarray import bitarray
 
 class Life:
-    
+    """A Python implementation of Game of Life.
+
+    It is a part of Big Geodata Processing Course in Quartile 1, Year 2.
+
+    Rules:
+    - Any live cell with fewer than two live neighbours dies, as if by underpopulation.
+    - Any live cell with two or three live neighbours lives on to the next generation.
+    - Any live cell with more than three live neighbours dies, as if by overpopulation.
+    - Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+    """
+
     def __init__(self, filename):
+        """Creates a Game of Life object.
+
+        Args:
+          filename: Input filename.
+
+        Raises:
+          Exception: If input data is invalid.
+        """
         self.filename = filename
         self.grid = []
         with open(filename) as f:
@@ -24,7 +42,12 @@ class Life:
                 self.grid[y+1][x+1] = 1      
                 
     
-    def tick(self, n):
+    def tick(self, n=1):
+        """Applies the rules of Game of Life for specified number of generations.
+
+        Args:
+          n: Number of generations.
+        """
         for i in range(n):
             for y, row in enumerate(self.grid[1:-1]):
                 y2 = y+2
