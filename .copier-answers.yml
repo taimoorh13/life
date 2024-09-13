@@ -1,0 +1,13 @@
+# Changes here will be overwritten by Copier
+_commit: 0.6.1
+_src_path: https://github.com/nlesc/python-template.git
+copyright_holder: Taimoor Hanif
+email: taimoor394@yahoo.com
+full_name: Taimoor Hanif
+github_organization: taimoorh13
+keywords: game of life;optimization
+license: GNUv3
+package_name: life
+package_short_description: A python implementation of Game of Life
+template_profile: minimum
+version: 0.1.0
