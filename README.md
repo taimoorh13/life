@@ -29,10 +29,13 @@ cd life
 python -m pip install .
 ```
 
-## Documentation
+## Testing
 
-Include a link to your project's full documentation here.
-
+- This has been tested on an input
+- Navigate to */docs/life.ipynb* to see the notebook with implementation of the module.
+- Notebook uses all the functions in the module, simply execute it reproduce the output
+- Output file is saved in the same directory as */docs/output.txt*, it can be changed by providing filepath of your choice
+- An output is already there for the input file which is used.
 
 
 ## Credits
