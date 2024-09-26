@@ -1,8 +1,6 @@
 .ipynb_checkpoints/
-*.ipynb
 .venv/
 life.py.lprof
-matrix.txt
 *.lprof
 mprofile_*.dat
 __pycache__/
