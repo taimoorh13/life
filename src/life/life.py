@@ -41,7 +41,11 @@ class Life:
                 
                 self.grid[y+1][x+1] = 1      
                 
-    
+    def getGrid(self):
+        """Returns the grid.
+        """
+        return self.grid
+        
     def tick(self, num_generations: int=1):
         """Applies the rules of Game of Life for specified number of generations.
 
@@ -59,3 +63,18 @@ class Life:
                     self.grid[y] = prev
                 prev = curr
             self.grid[y+1] = curr
+
+    def saveGrid(self, output: str='output.txt'):
+        """Saves the final grid in a text file.
+
+        Args:
+          output: output file location (optional).
+        """
+        with open(output, 'w') as f:
+            f.write(f"{self.w} {self.h}\n")
+            for y, row in enumerate(self.grid[1:-1]):
+                for x, val in enumerate(row[1:-1]):
+                    f.write(f"{y} {x}\n") if val == 1 else ""
+
+        print (f'File saved at location: {output}')
+                
