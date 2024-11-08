@@ -1,0 +1,6 @@
+.ipynb_checkpoints/
+.venv/
+life.py.lprof
+*.lprof
+mprofile_*.dat
+__pycache__/

@@ -11,7 +11,6 @@ class Life:
     - Any live cell with more than three live neighbours dies, as if by overpopulation.
     - Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
     """
-
     def __init__(self, filename: str):
         """Creates a Game of Life object.
 
@@ -72,9 +71,5 @@ class Life:
         """
         with open(output, 'w') as f:
             f.write(f"{self.w} {self.h}\n")
-            for y, row in enumerate(self.grid[1:-1]):
-                for x, val in enumerate(row[1:-1]):
-                    f.write(f"{y} {x}\n") if val == 1 else ""
-
-        print (f'File saved at location: {output}')
-                
+            f.writelines(f"{y} {x}\n" for y, row in enumerate(self.grid[1:-1]) for x, val in enumerate(row[1:-1]) if val == 1)
+            
